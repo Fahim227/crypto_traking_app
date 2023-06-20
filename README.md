@@ -1,16 +1,14 @@
 # crypto_traking_app
 
-A new Flutter project.
+This Project is build by maintaining proper MVVM architecture pattern and using Getx state management
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+To Run this App you need to go with following commands:
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Make Clone of this Repository
+- run "flutter clean"
+- run "flutter pub get"
+- Click on "Get Dependencies"
+- Select an Device or Emulator
+- Click on Run button to run the app
