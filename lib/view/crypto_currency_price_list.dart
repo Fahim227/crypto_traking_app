@@ -1,14 +1,10 @@
 import 'dart:async';
 
-import 'package:crypto_traking_app/APIServices/app_services.dart';
 import 'package:crypto_traking_app/view_model/currency_price_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sqflite/sqflite.dart';
-
-import '../APIServices/service_api.dart';
 import '../DatabaseProvider/offlineDatabase.dart';
-import '../Model/currency_model.dart';
 
 class CryptoCurrencyPrice extends StatefulWidget {
   const CryptoCurrencyPrice({Key? key}) : super(key: key);
@@ -62,9 +58,27 @@ class _CryptoCurrencyPriceState extends State<CryptoCurrencyPrice> {
           return Scaffold(
               appBar: AppBar(title: Text("Crypto Tracking App"),),
               body:
-              controller.isLoading.value ?
+              controller.isLoading.value && controller.errorMessage.value.isEmpty ?
               Center(child: CircularProgressIndicator()):
-              Container(
+              controller.errorMessage.value.isEmpty == false ? AlertDialog(
+                title: null,
+                content: SingleChildScrollView(
+                  child: ListBody(
+                    children: <Widget>[
+                      Text(controller.errorMessage.value),
+                    ],
+                  ),
+                ),
+                actions: <Widget>[
+                  TextButton(
+                    child: const Text('Ok'),
+                    onPressed: () {
+                      // Navigator.of(context).pop();
+                    },
+                  ),
+
+                ],
+              ): Container(
                 child: ListView.builder(
                     controller: scrollController,
                     itemCount: controller.currencyList.value.dataList!.length +1,

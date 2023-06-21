@@ -1,8 +1,5 @@
 
-import 'dart:convert';
-
 import 'package:crypto_traking_app/APIServices/app_services.dart';
-import 'package:crypto_traking_app/Model/currency_model.dart';
 import 'package:crypto_traking_app/res/api_url/api_url.dart';
 import 'package:http/http.dart' as http;
 

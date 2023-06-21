@@ -8,6 +8,7 @@ class CurrencyPriceViewModel extends GetxController{
 
   final currencyList = CurrencyListModel().obs;
   final isLoading = false.obs;
+  final errorMessage = ''.obs;
 
 
   void getAllCurrencyPrice(){
@@ -21,6 +22,8 @@ class CurrencyPriceViewModel extends GetxController{
         update();
       });
     }).onError((error, stackTrace) {
+      errorMessage.value = error.toString();
+      update();
       print(error);
     });
   }
